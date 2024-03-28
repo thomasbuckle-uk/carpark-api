@@ -5,7 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Enum\PricingCalendar\DayTypeEnum;
 use App\Enum\PricingCalendar\SeasonEnum;
+use App\Models\Booking;
 use App\Models\CarPark;
+use App\Models\Customer;
 use App\Models\PricingCalendar;
 use App\Models\User;
 use Database\Factories\CarParkFactory;
@@ -53,6 +55,16 @@ class DatabaseSeeder extends Seeder
             'season' => SeasonEnum::Winter,
             'day_type' => DayTypeEnum::Weekend,
             'price_per_day' => 30.00
+        ]);
+
+        Customer::factory()->create([
+            'name' => 'John Smith',
+            'registration' => 'EN17 RAA'
+        ]);
+
+        Booking::factory()->create([
+            'car_park_id' => 1,
+            'customer_id' => 1,
         ]);
     }
 }
