@@ -12,7 +12,8 @@ class CarParkFactory extends Factory
     public function definition(): array
     {
         return [
-
+            'name' => 'Awesome Parking',
+            'total_spaces' => 10
         ];
     }
 }
