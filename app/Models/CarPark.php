@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CarPark extends Model
 {
     use HasFactory;
+
+    protected $table = 'carpark';
+
+    protected $fillable = [
+        'name',
+        'total_spaces'
+    ];
 }
