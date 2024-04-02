@@ -13,7 +13,7 @@ class CustomerFactory extends Factory
     {
         return [
             'name' => fake()->name,
-            'registration' => ['RG85 RFU']
+            'registration' => ['RG85 RFU'],
         ];
     }
 }

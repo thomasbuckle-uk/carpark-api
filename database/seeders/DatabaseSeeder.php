@@ -6,11 +6,11 @@ namespace Database\Seeders;
 use App\Enum\PricingCalendar\DayTypeEnum;
 use App\Enum\PricingCalendar\SeasonEnum;
 use App\Models\Booking;
-use App\Models\CarPark;
+use App\Models\Carpark;
 use App\Models\Customer;
 use App\Models\PricingCalendar;
 use App\Models\User;
-use Database\Factories\CarParkFactory;
+use Database\Factories\CarparkFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,37 +29,37 @@ class DatabaseSeeder extends Seeder
 
         Carpark::factory()->create([
             'name' => 'Awesome Carpark',
-            'total_spaces' => 10
+            'total_spaces' => 10,
         ]);
 
         PricingCalendar::factory()->create([
             'car_park_id' => 1,
             'season' => SeasonEnum::Summer,
             'day_type' => DayTypeEnum::Weekday,
-            'price_per_day' => 40.00
+            'price_per_day' => 40.00,
         ]);
         PricingCalendar::factory()->create([
             'car_park_id' => 1,
             'season' => SeasonEnum::Summer,
             'day_type' => DayTypeEnum::Weekend,
-            'price_per_day' => 20.00
+            'price_per_day' => 20.00,
         ]);
         PricingCalendar::factory()->create([
             'car_park_id' => 1,
             'season' => SeasonEnum::Winter,
             'day_type' => DayTypeEnum::Weekday,
-            'price_per_day' => 50.00
+            'price_per_day' => 50.00,
         ]);
         PricingCalendar::factory()->create([
             'car_park_id' => 1,
             'season' => SeasonEnum::Winter,
             'day_type' => DayTypeEnum::Weekend,
-            'price_per_day' => 30.00
+            'price_per_day' => 30.00,
         ]);
 
         Customer::factory()->create([
             'name' => 'John Smith',
-            'registration' => 'EN17 RAA'
+            'registration' => 'EN17 RAA',
         ]);
 
         Booking::factory()->create([

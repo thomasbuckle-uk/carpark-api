@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\CarPark;
+use App\Models\Carpark;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CarParkFactory extends Factory
+class CarparkFactory extends Factory
 {
-    protected $model = CarPark::class;
+    protected $model = Carpark::class;
 
     public function definition(): array
     {
         return [
             'name' => 'Awesome Parking',
-            'total_spaces' => 10
+            'total_spaces' => 10,
         ];
     }
 }

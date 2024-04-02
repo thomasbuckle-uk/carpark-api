@@ -20,7 +20,7 @@ return new class extends Migration
 
         Schema::create('pricing_calendar', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(App\Models\CarPark::class);
+            $table->foreignIdFor(App\Models\Carpark::class);
             $table->string('season');
             $table->string('day_type');
             $table->double('price_per_day');
