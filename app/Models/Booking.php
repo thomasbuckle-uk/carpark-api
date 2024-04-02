@@ -14,18 +14,16 @@ class Booking extends Model
 
     protected $fillable = [
         'start_date',
-        'end_date'
+        'end_date',
     ];
 
     public function carpark(): BelongsTo
     {
-        return $this->belongsTo(CarPark::class);
+        return $this->belongsTo(Carpark::class);
     }
 
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
     }
-
-
 }

@@ -10,7 +10,6 @@ use App\Models\Carpark;
 use App\Models\Customer;
 use App\Models\PricingCalendar;
 use App\Models\User;
-use Database\Factories\CarparkFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +19,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
 
         User::factory()->create([
             'name' => 'Admin User',

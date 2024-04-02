@@ -20,8 +20,9 @@ class PricingCalendar extends Model
         'season' => SeasonEnum::class,
         'day_type' => DayTypeEnum::class,
     ];
+
     public function carpark(): BelongsTo
     {
-        return $this->belongsTo(CarPark::class);
+        return $this->belongsTo(Carpark::class);
     }
 }

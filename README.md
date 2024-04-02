@@ -14,7 +14,7 @@ Create a simple API, that allows you to make a booking for given dates, manage c
 
 
 - Customers should be able to check if there’s an available car parking space for a given
-date range.
+date range. ✅
 
 - Customer should be able to check parking price for the given dates (i.e.,
 Weekday/Weekend Pricing, Summer/Winter Pricing)
@@ -24,8 +24,8 @@ Weekday/Weekend Pricing, Summer/Winter Pricing)
 
 ## Things to consider.
 
-- Number of available spaces
-- API should show how many spaces for given date is available (per day)
+- Number of available spaces ✅
+- API should show how many spaces for given date is available (per day) ✅
 - Parking date From - date when car is being dropped off at the car park.
 - Parking date To - date time when car will be picked from the car park.
 

@@ -16,7 +16,7 @@ class PricingCalendarFactory extends Factory
     {
         return [
             'car_park_id' => Carpark::factory(),
-            'season'  => $this->faker->randomElement(SeasonEnum::values()),
+            'season' => $this->faker->randomElement(SeasonEnum::values()),
             'day_type' => $this->faker->randomElement(DayTypeEnum::values()),
             'price_per_day' => fake()->randomFloat(2, 10.00, 50.00),
         ];
