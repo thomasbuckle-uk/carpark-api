@@ -19,8 +19,8 @@ date range. ✅
 - Customer should be able to check parking price for the given dates (i.e.,
 Weekday/Weekend Pricing, Summer/Winter Pricing) ✅
 - Customers should be able to create a booking for given dates (from - to)
-- Customers should be able to cancel their booking.
-- Customers should be able to amend their booking.
+- Customers should be able to cancel their booking. ✅
+- Customers should be able to amend their booking. ❌
 
 ## Things to consider.
 
@@ -56,6 +56,12 @@ We do not set a specific time limit on the exercise, please take as much time as
     ```
   
 ## Testing
+
+I have included a postman collection that should allow for easy testing of the API itself.
+
+Didn't get round to adding tests.
+
+However, I'd want to use Pest PHP and setup some BDD style tests especially testing the shape of response data given a set of existing database conditions and request inputs
 
 - Run tests using:
 ```shell
