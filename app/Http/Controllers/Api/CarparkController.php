@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Api;
 use App\Helpers\DateFromStringHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckDatesPostRequest;
+use App\Http\Requests\CheckPriceRequest;
 use App\Http\Resources\CarparkCollection;
 use App\Http\Resources\CarparkResource;
 use App\Models\Carpark;
@@ -59,5 +60,19 @@ class CarparkController extends Controller
         $data = $carpark->buildAvailableSpacePerDayList(7);
 
         return response()->json($data);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function checkPriceForDates(Carpark $carpark, CheckPriceRequest $request)
+    {
+
+        $result = $carpark->getPriceForDateRange(
+            dateFrom: DateFromStringHelper::dateFromString($request->get('dateFrom')),
+            dateTo: DateFromStringHelper::dateFromString($request->get('dateTo')),
+        );
+
+        return response()->json($result);
     }
 }

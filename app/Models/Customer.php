@@ -18,4 +18,9 @@ class Customer extends Model
     {
         return $this->hasMany(Booking::class);
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 }

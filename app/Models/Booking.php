@@ -19,7 +19,7 @@ class Booking extends Model
 
     public function carpark(): BelongsTo
     {
-        return $this->belongsTo(Carpark::class);
+        return $this->belongsTo(Carpark::class, 'car_park_id');
     }
 
     public function customer(): BelongsTo

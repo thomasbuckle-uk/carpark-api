@@ -25,4 +25,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
     Route::apiResource('booking', BookingController::class);
     Route::post('carpark/{carpark}/space-check', [CarparkController::class, 'spaceCheck']);
     Route::get('carpark/{carpark}/spaces-for-next-week', [CarparkController::class, 'availableSpacesForNextWeek']);
+    Route::post('carpark/{carpark}/check-price-for-dates', [CarparkController::class, 'checkPriceForDates']);
+    Route::post('carpark/{carpark}/booking', [BookingController::class, 'createBooking']);
 });

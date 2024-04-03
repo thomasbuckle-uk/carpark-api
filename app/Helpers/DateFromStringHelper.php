@@ -15,7 +15,7 @@ class DateFromStringHelper
     public static function dateFromString(string $date): DateTime
     {
         try {
-            return new DateTime($date);
+            return DateTime::createFromFormat('d/m/Y', $date);
         } catch (Exception) {
             throw new Exception('Invalid Date string passed in'); // Ideally we would want a custom exception class here
         }

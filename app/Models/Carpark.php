@@ -29,7 +29,12 @@ class Carpark extends Model
 
     public function bookings(): HasMany
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasMany(Booking::class, 'car_park_id');
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function pricingCalendar(): HasMany
@@ -69,7 +74,7 @@ class Carpark extends Model
     /**
      * @throws Exception
      */
-    public function getPriceForDate(DateTime $date)
+    public function getPriceForDate(DateTime $date): float
     {
 
         $seasonType = 'summer';
