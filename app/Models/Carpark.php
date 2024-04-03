@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateInterval;
+use DatePeriod;
 use DateTime;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -78,7 +80,6 @@ class Carpark extends Model
         $winterDate = Carbon::createFromFormat('d/m', config('WINTER_PRICING_BEGINS', self::WINTER_BEGINS));
         $summerDate = Carbon::createFromFormat('d/m', config('SUMMER_PRICING_BEGINS', self::SUMMER_BEGINS));
 
-
         // Case for dates before summer starts on given year
         if ($carbonDate->lessThanOrEqualTo($summerDate)) {
             $seasonType = 'winter';
@@ -103,14 +104,28 @@ class Carpark extends Model
         }
 
         if (isset($result->first()->price_per_day)) {
-            return $result->first();
+            return $result->first()->price_per_day;
         }
 
         throw new Exception('Unable to find price for given date');
     }
 
-    public function getPriceForDateRange()
+    /**
+     * @throws Exception
+     */
+    public function getPriceForDateRange(DateTime $dateFrom, DateTime $dateTo): array
     {
-        //TODO
+        // Modify $dateTo by one day, so we include that date in the pricing
+        $dateRange = new DatePeriod($dateFrom, new DateInterval('P1D'), $dateTo->modify('+1 day'));
+
+        $priceArray = [];
+        $priceArray['totalForRange'] = 0.00;
+
+        foreach ($dateRange as $date) {
+            $priceArray[$date->format('d/m/Y')] = $this->getPriceForDate($date);
+            $priceArray['totalForRange'] += $priceArray[$date->format('d/m/Y')];
+        }
+
+        return $priceArray;
     }
 }
